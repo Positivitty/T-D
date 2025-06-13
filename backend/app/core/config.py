@@ -7,7 +7,15 @@ import secrets
 class Settings(BaseSettings):
     PROJECT_NAME: str = "T@D Rolloff Container Tracker"
     API_V1_STR: str = "/api/v1"
-    SECRET_KEY: str = secrets.token_urlsafe(32)
+    
+    # Database
+    DATABASE_URL: str = "postgresql://postgres:postgres@localhost:5432/tad_rolloff"
+    
+    # CORS
+    BACKEND_CORS_ORIGINS: list[str] = ["http://localhost:3000"]
+    
+    # Security
+    SECRET_KEY: str = "your-secret-key-here"  # Change this in production
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 8  # 8 days
 
     POSTGRES_SERVER: str = "localhost"
